@@ -28,6 +28,16 @@ public class ChessPiece {
     }
 
     @Override
+    public String toString() {
+        if (pieceColor == ChessGame.TeamColor.WHITE) {
+            return String.valueOf(type.getPieceChar());
+        }
+        else {
+            return String.valueOf(Character.toLowerCase(type.getPieceChar()));
+        }
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) {
             return false;
@@ -45,12 +55,22 @@ public class ChessPiece {
      * The various different chess piece options
      */
     public enum PieceType {
-        KING,
-        QUEEN,
-        BISHOP,
-        KNIGHT,
-        ROOK,
-        PAWN
+        KING('K'),
+        QUEEN('Q'),
+        BISHOP('B'),
+        KNIGHT('N'),
+        ROOK('R'),
+        PAWN('P');
+
+        public char pieceChar;
+
+        PieceType(char pieceChar) {
+            this.pieceChar = pieceChar;
+        }
+
+        public char getPieceChar() {
+            return pieceChar;
+        }
     }
 
     /**
