@@ -1,6 +1,7 @@
 package chess;
 
 import chess.moves.MoveCalculator;
+import chess.moves.PawnMoves;
 import chess.moves.bounded.KingMoves;
 import chess.moves.bounded.KnightMoves;
 import chess.moves.directional.BishopMoves;
@@ -80,7 +81,7 @@ public class ChessPiece {
             case ROOK -> new RookMoves(board, myPosition);
             case KING -> new KingMoves(board, myPosition);
             case KNIGHT -> new KnightMoves(board, myPosition);
-            default -> null;
+            case PAWN -> new PawnMoves(board, myPosition);
         };
 
         return calculator.pieceMoves();
