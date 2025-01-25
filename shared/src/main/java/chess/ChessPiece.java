@@ -3,6 +3,7 @@ package chess;
 import chess.moves.MoveCalculator;
 import chess.moves.directional.BishopMoves;
 import chess.moves.directional.QueenMoves;
+import chess.moves.directional.RookMoves;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -74,6 +75,7 @@ public class ChessPiece {
         MoveCalculator calculator = switch(type) {
             case QUEEN -> new QueenMoves(board, myPosition);
             case BISHOP -> new BishopMoves(board, myPosition);
+            case ROOK -> new RookMoves(board, myPosition);
             default -> null;
         };
 
